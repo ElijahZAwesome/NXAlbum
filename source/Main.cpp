@@ -6,7 +6,7 @@ int main()
     // JS Libs located at RomFS
     Brew::Init("romfs:/BrewLibs");
     Brew::EvaluateFile("romfs:/Album/main.js");
-    Brew::Exit()
+    Brew::Exit();
     // Exit the code
     return 0;
 }
