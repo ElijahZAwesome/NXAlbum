@@ -30,7 +30,9 @@ include $(DEVKITPRO)/libnx/switch_rules
 #     - icon.jpg
 #     - <libnx folder>/default_icon.jpg
 #---------------------------------------------------------------------------------
-TARGET		:=	$(notdir $(CURDIR))
+APP_TITLE   :=  Album
+APP_AUTHOR  :=  ElijahZAwesome
+TARGET		:=	Release/NXAlbum
 BUILD		:=	build
 SOURCES		:=	source
 DATA		:=	data
