@@ -103,11 +103,6 @@ Array.prototype.clean = function(deleteValue) {
 	finalArray.sort();
 	finalArray.reverse();
 	
-	// Our file, located at the SD card
-	var ourfile = "sdmc:/photolist.txt";
-	// We create this file (if doesn't exist) and write down the Switch's architecture ("aarch64")
-	fs.writeFile(ourfile, "" + finalArray.toString());
-	
 	/*finalArray.forEach(function(dir) {
 		debugstring += dir + "\n";
 	});*/

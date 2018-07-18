@@ -27,7 +27,6 @@ namespace sdl
         int hspeed;
         int vspeed;
         bool phys;
-		bool touchable;
     };
 
     struct Text
@@ -837,39 +836,6 @@ namespace sdl
         }
         return 1;
     }
-	
-	    inline int Object_touchable(duk_context *ctx)
-    {
-        int argc = duk_get_top(ctx);
-        if(argc >= 2)
-        {
-            int id = duk_get_number(ctx, 0);
-            bool ph = duk_get_number(ctx, 1);
-            for(int i = 0; i < gfxblock.size(); i++)
-            {
-                if(gfxblock[i].id == id)
-                {
-                    gfxblock[i].touchable = ph;
-                    break;
-                }
-            }
-        }
-        else if(argc == 1)
-        {
-            int id = duk_get_number(ctx, 0);
-            int ph = false;
-            for(int i = 0; i < gfxblock.size(); i++)
-            {
-                if(gfxblock[i].id == id)
-                {
-                    ph = gfxblock[i].touchable;
-                    break;
-                }
-            }
-            duk_push_number(ctx, ph);
-        }
-        return 1;
-    }
 
     inline int Object_checkCollide(duk_context *ctx)
     {
@@ -1179,8 +1145,6 @@ namespace sdl
 	    duk_put_global_string(ctx, "__sdl__Object_vspeed");
         duk_push_c_function(ctx, Object_usesPhysics, DUK_VARARGS);
 	    duk_put_global_string(ctx, "__sdl__Object_usesPhysics");
-        duk_push_c_function(ctx, Object_touchable, DUK_VARARGS);
-	    duk_put_global_string(ctx, "__sdl__Object_touchable");
         duk_push_c_function(ctx, Object_checkCollide, DUK_VARARGS);
 	    duk_put_global_string(ctx, "__sdl__Object_checkCollide");
         duk_push_c_function(ctx, Object_leftCollide, DUK_VARARGS);
